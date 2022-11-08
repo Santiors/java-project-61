@@ -23,11 +23,11 @@ public class Even {
                     || ((randomNumber % 2 != 0) && (answer.equals("no")))) {
                 System.out.println("Correct!");
                 counter++;
-            } else if (((randomNumber % 2 != 0) && (!answer.equals("yes")))) {
+            } else if (((randomNumber % 2 != 0) && (!answer.equals("no")))) {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'no'.\n"
                         + "Let's try again, " + name + "!");
                 exit = false;
-            } else if (((randomNumber % 2 == 0) && (!answer.equals("no")))) {
+            } else if (((randomNumber % 2 == 0) && (!answer.equals("yes")))) {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes'.\n"
                         + "Let's try again, " + name + "!");
                 exit = false;
