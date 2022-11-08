@@ -31,3 +31,10 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.required = false
+        html.required = true
+    }
+}
