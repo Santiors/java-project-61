@@ -1,45 +1,29 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-
 import java.util.Random;
 
-import static hexlet.code.Engine.NUMBER_OF_CORRECT_ANSWERS;
 import static hexlet.code.Engine.RANDOM_UPPER_LIMIT;
+import static hexlet.code.Engine.checkCorrection;
 
 public class Even {
 
     private static Random random = new Random();
-    private static boolean exit = true;
-    private static Integer counter = 0;
+    private static boolean check = true;
+    private static String result;
 
 
     public static void evenGame() {
         String name = Greet.greetGame();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        while (exit && counter < NUMBER_OF_CORRECT_ANSWERS) {
+        while (check) {
             Integer randomNumber = random.nextInt(RANDOM_UPPER_LIMIT);
             System.out.println("Question: " + randomNumber);
-            String answer = Engine.getAnswer();
-            if (((randomNumber % 2 == 0) && (answer.equals("yes")))
-                    || ((randomNumber % 2 != 0) && (answer.equals("no")))) {
-                System.out.println("Correct!");
-                counter++;
-            } else if (((randomNumber % 2 != 0) && (!answer.equals("no")))) {
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'no'.\n"
-                        + "Let's try again, " + name + "!");
-                exit = false;
-            } else if (((randomNumber % 2 == 0) && (!answer.equals("yes")))) {
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes'.\n"
-                        + "Let's try again, " + name + "!");
-                exit = false;
+            if (randomNumber % 2 == 0) {
+                result = "yes";
             } else {
-                exit = false;
+                result = "no";
             }
-        }
-        if (counter == NUMBER_OF_CORRECT_ANSWERS) {
-            System.out.println("Congratulations, " + name + "!");
+            check = checkCorrection(result, name);
         }
     }
-
 }
