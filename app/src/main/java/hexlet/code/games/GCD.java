@@ -1,5 +1,7 @@
-package hexlet.code;
+package hexlet.code.games;
 
+
+import hexlet.code.Engine;
 
 import static hexlet.code.Engine.NUMBER_OF_CORRECT_ANSWERS;
 

@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import static hexlet.code.Engine.NUMBER_OF_CORRECT_ANSWERS;
 import static hexlet.code.Engine.getAnswer;
