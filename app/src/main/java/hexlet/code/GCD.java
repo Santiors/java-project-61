@@ -13,7 +13,7 @@ public class GCD {
     private static int firstNumber;
     private static int secondNumber;
     private static int gcdResult;
-    private static int answer;
+    private static String answer;
 
     public static void gsdGame() {
         String name = Greet.greetGame();
@@ -24,10 +24,10 @@ public class GCD {
             gcdResult = gcdByEuclid(firstNumber, secondNumber);
             System.out.println("Question: " + firstNumber + " " + secondNumber);
             answer = getAnswer();
-            if (answer == gcdResult) {
+            if (answer.equals(gcdResult)) {
                 System.out.println("Correct!");
                 counter++;
-            } else if (answer != gcdResult) {
+            } else if (!answer.equals(gcdResult)) {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was "
                         + "'" + gcdResult + "'.\n"
                         + "Let's try again, " + name + "!");
@@ -39,16 +39,15 @@ public class GCD {
         }
     }
 
-    public static int gcdByEuclid(int firstNumber, int secondNumber) {
-        if (secondNumber == 0) {
-            return firstNumber;
+    public static int gcdByEuclid(int first, int second) {
+        if (second == 0) {
+            return first;
         }
-        return gcdByEuclid(secondNumber, firstNumber % secondNumber);
+        return gcdByEuclid(second, first % second);
     }
 
-    public static int getAnswer() {
+    public static String getAnswer() {
         Scanner sc = new Scanner(System.in);
-        int answer = sc.nextInt();
-        return answer;
+        return sc.nextLine();
     }
 }

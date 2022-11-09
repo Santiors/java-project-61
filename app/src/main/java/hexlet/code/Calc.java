@@ -63,12 +63,11 @@ public class Calc {
     }
 
     public static Integer getRandomNumber() {
-        return random.nextInt(RANDOM_UPPER_LIMIT);
+        return random.nextInt(1, RANDOM_UPPER_LIMIT);
     }
 
     public static Integer getAnswer() {
         Scanner sc = new Scanner(System.in);
-        Integer answer = sc.nextInt();
-        return answer;
+        return sc.nextInt();
     }
 }

@@ -10,30 +10,34 @@ public class App {
                 + "2 - Even\n"
                 + "3 - Calc\n"
                 + "4 - GCD\n"
+                + "5 - Progression\n"
                 + "0 - Exit");
-        Integer gameType = getGameNumber();
+        String gameType = getGameNumber();
         System.out.println("Your choice: " + gameType);
         switch (gameType) {
-            case 1:
+            case "1":
                 Greet.greetGame();
                 break;
-            case 2:
+            case "2":
                 Even.evenGame();
                 break;
-            case 3:
+            case "3":
                 Calc.calcGame();
                 break;
-            case 4:
+            case "4":
                 GCD.gsdGame();
+                break;
+            case "5":
+                Progression.progressionGame();
                 break;
             default:
                 break;
         }
     }
 
-    public static Integer getGameNumber() {
+    public static String getGameNumber() {
         Scanner sc = new Scanner(System.in);
-        Integer answer = sc.nextInt();
+        String answer = sc.nextLine();
         return answer;
     }
 
