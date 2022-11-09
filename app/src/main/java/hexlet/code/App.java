@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import java.util.Scanner;
-
 public class App {
 
     public static void main(String[] args) {
@@ -12,7 +10,7 @@ public class App {
                 + "4 - GCD\n"
                 + "5 - Progression\n"
                 + "0 - Exit");
-        String gameType = getGameNumber();
+        String gameType = Engine.getAnswer();
         System.out.println("Your choice: " + gameType);
         switch (gameType) {
             case "1":
@@ -33,12 +31,6 @@ public class App {
             default:
                 break;
         }
-    }
-
-    public static String getGameNumber() {
-        Scanner sc = new Scanner(System.in);
-        String answer = sc.nextLine();
-        return answer;
     }
 
 }

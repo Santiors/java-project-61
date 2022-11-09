@@ -1,23 +1,23 @@
 package hexlet.code;
 
-import java.util.Random;
-import java.util.Scanner;
 
-import static hexlet.code.Even.NUMBER_OF_CORRECT_ANSWERS;
-import static hexlet.code.Even.RANDOM_UPPER_LIMIT;
+import java.util.Random;
+
+import static hexlet.code.Engine.NUMBER_OF_CORRECT_ANSWERS;
+import static hexlet.code.Engine.RANDOM_UPPER_LIMIT;
 
 public class Calc {
 
     private static final int NUMBER_OF_OPERATIONS = 3;
 
-    private static Random random = new Random();
-    private static boolean exit = true;
-    private static Integer counter = 0;
     private static Integer firstNumber;
     private static Integer secondNumber;
     private static Integer result = 0;
-    private static Integer answer;
+    private static String answer;
     private static String operation;
+    private static Random random = new Random();
+    private static boolean exit = true;
+    private static Integer counter = 0;
 
     public static void calcGame() {
         String name = Greet.greetGame();
@@ -40,7 +40,7 @@ public class Calc {
                     break;
             }
             System.out.println("Question: " + firstNumber + operation + secondNumber);
-            answer = getAnswer();
+            answer = Engine.getAnswer();
             if (answer.equals(result)) {
                 System.out.println("Correct!");
                 counter++;
@@ -66,8 +66,4 @@ public class Calc {
         return random.nextInt(1, RANDOM_UPPER_LIMIT);
     }
 
-    public static Integer getAnswer() {
-        Scanner sc = new Scanner(System.in);
-        return sc.nextInt();
-    }
 }

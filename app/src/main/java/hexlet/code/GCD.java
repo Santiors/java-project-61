@@ -1,19 +1,16 @@
 package hexlet.code;
 
-import java.util.Random;
-import java.util.Scanner;
 
-import static hexlet.code.Even.NUMBER_OF_CORRECT_ANSWERS;
+import static hexlet.code.Engine.NUMBER_OF_CORRECT_ANSWERS;
 
 public class GCD {
 
-    private static Random random = new Random();
-    private static boolean exit = true;
-    private static Integer counter = 0;
     private static int firstNumber;
     private static int secondNumber;
     private static int gcdResult;
     private static String answer;
+    private static boolean exit = true;
+    private static Integer counter = 0;
 
     public static void gsdGame() {
         String name = Greet.greetGame();
@@ -23,7 +20,7 @@ public class GCD {
             secondNumber = Calc.getRandomNumber();
             gcdResult = gcdByEuclid(firstNumber, secondNumber);
             System.out.println("Question: " + firstNumber + " " + secondNumber);
-            answer = getAnswer();
+            answer = Engine.getAnswer();
             if (answer.equals(gcdResult)) {
                 System.out.println("Correct!");
                 counter++;
@@ -46,8 +43,4 @@ public class GCD {
         return gcdByEuclid(second, first % second);
     }
 
-    public static String getAnswer() {
-        Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
-    }
 }

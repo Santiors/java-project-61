@@ -1,14 +1,13 @@
 package hexlet.code;
 
-import java.util.Random;
-import java.util.Scanner;
 
-import static hexlet.code.Even.NUMBER_OF_CORRECT_ANSWERS;
+import java.util.Random;
+
+import static hexlet.code.Engine.NUMBER_OF_CORRECT_ANSWERS;
+import static hexlet.code.Engine.RANDOM_END;
+import static hexlet.code.Engine.RANDOM_START;
 
 public class Progression {
-
-    public static final int RANDOM_START = 5;
-    public static final int RANDOM_END = 10;
 
     private static Random random = new Random();
     private static boolean exit = true;
@@ -23,7 +22,7 @@ public class Progression {
             String[] arrayWithMissing = getProgressionWithMissingElement(array, position);
             System.out.println("What number is missing in the progression?");
             printQuestionWithStringArray(arrayWithMissing);
-            String answer = getAnswer();
+            String answer = Engine.getAnswer();
             if (answer.equals(array[position])) {
                 System.out.println("Correct!");
                 counter++;
@@ -62,8 +61,4 @@ public class Progression {
         System.out.println();
     }
 
-    public static String getAnswer() {
-        Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
-    }
 }
