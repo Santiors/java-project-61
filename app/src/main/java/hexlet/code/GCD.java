@@ -16,8 +16,8 @@ public class GCD {
         String name = Greet.greetGame();
         System.out.println("Find the greatest common divisor of given numbers.");
         while (exit && counter < NUMBER_OF_CORRECT_ANSWERS) {
-            firstNumber = Calc.getRandomNumber();
-            secondNumber = Calc.getRandomNumber();
+            firstNumber = Engine.getRandomNumber();
+            secondNumber = Engine.getRandomNumber();
             gcdResult = gcdByEuclid(firstNumber, secondNumber);
             System.out.println("Question: " + firstNumber + " " + secondNumber);
             answer = Engine.getAnswer();

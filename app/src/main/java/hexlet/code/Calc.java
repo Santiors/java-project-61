@@ -23,8 +23,8 @@ public class Calc {
         String name = Greet.greetGame();
         System.out.println("What is the result of the expression?");
         while (exit && counter < NUMBER_OF_CORRECT_ANSWERS) {
-            firstNumber = getRandomNumber();
-            secondNumber = getRandomNumber();
+            firstNumber = Engine.getRandomNumber();
+            secondNumber = Engine.getRandomNumber();
             operation = getRandomOperation();
             switch (operation) {
                 case " + ":
@@ -60,10 +60,6 @@ public class Calc {
         String[] operations = {" + ", " - ", " * "};
         int i = random.nextInt(NUMBER_OF_OPERATIONS);
         return operations[i];
-    }
-
-    public static Integer getRandomNumber() {
-        return random.nextInt(1, RANDOM_UPPER_LIMIT);
     }
 
 }
