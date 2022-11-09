@@ -57,6 +57,7 @@ public class Progression {
     }
 
     public static void printQuestionWithStringArray(String[] array) {
+        System.out.print("Question: ");
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
