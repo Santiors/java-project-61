@@ -18,10 +18,6 @@ public class Calc {
     private static Integer result = 0;
     private static String operation;
 
-    public static void main(String[] args) {
-        calcGame();
-    }
-
     public static void calcGame() {
         String name = Greet.greetGame();
         System.out.println("What is the result of the expression?");
