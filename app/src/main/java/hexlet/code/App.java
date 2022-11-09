@@ -8,6 +8,7 @@ public class App {
         System.out.println("Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
                 + "2 - Even\n"
+                + "3 - Calc\n"
                 + "0 - Exit");
         Integer gameType = getGameNumber();
         System.out.println("Your choice: " + gameType);
@@ -17,6 +18,9 @@ public class App {
                 break;
             case 2:
                 Even.evenGame();
+                break;
+            case 3:
+                Calc.calcGame();
                 break;
             default:
                 break;

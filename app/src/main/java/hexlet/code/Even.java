@@ -5,15 +5,15 @@ import java.util.Scanner;
 
 public class Even {
 
-    private static final int RANDOM_UPPER_LIMIT = 1000;
-    private static final int NUMBER_OF_CORRECT_ANSWERS = 3;
+    public static final int RANDOM_UPPER_LIMIT = 100;
+    public static final int NUMBER_OF_CORRECT_ANSWERS = 3;
+    private static Random random = new Random();
 
 
     public static void evenGame() {
         String name = Greet.greetGame();
         boolean exit = true;
         Integer counter = 0;
-        Random random = new Random();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         while (exit && counter < NUMBER_OF_CORRECT_ANSWERS) {
             Integer randomNumber = random.nextInt(RANDOM_UPPER_LIMIT);
