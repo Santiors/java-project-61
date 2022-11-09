@@ -18,10 +18,6 @@ public class Calc {
     private static Random random = new Random();
     private static boolean check = true;
 
-    public static void main(String[] args) {
-        calcGame();
-    }
-
     public static void calcGame() {
         String name = Greet.greetGame();
         System.out.println("What is the result of the expression?");
