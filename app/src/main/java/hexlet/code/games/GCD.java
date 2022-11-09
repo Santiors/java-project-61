@@ -9,7 +9,7 @@ public class GCD {
 
     private static int firstNumber;
     private static int secondNumber;
-    private static int gcdResult;
+    private static String gcdResult;
     private static String answer;
     private static boolean exit = true;
     private static Integer counter = 0;
@@ -20,7 +20,7 @@ public class GCD {
         while (exit && counter < NUMBER_OF_CORRECT_ANSWERS) {
             firstNumber = Engine.getRandomNumber();
             secondNumber = Engine.getRandomNumber();
-            gcdResult = gcdByEuclid(firstNumber, secondNumber);
+            gcdResult = String.valueOf(gcdByEuclid(firstNumber, secondNumber));
             System.out.println("Question: " + firstNumber + " " + secondNumber);
             answer = Engine.getAnswer();
             if (answer.equals(gcdResult)) {
