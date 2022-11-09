@@ -16,6 +16,7 @@ public class Calc {
     private static Integer firstNumber;
     private static Integer secondNumber;
     private static Integer result = 0;
+    private static Integer answer;
     private static String operation;
 
     public static void calcGame() {
@@ -39,7 +40,7 @@ public class Calc {
                     break;
             }
             System.out.println("Question: " + firstNumber + operation + secondNumber);
-            Integer answer = getAnswer();
+            answer = getAnswer();
             if (answer.equals(result)) {
                 System.out.println("Correct!");
                 counter++;

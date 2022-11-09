@@ -9,6 +9,7 @@ public class App {
                 + "1 - Greet\n"
                 + "2 - Even\n"
                 + "3 - Calc\n"
+                + "4 - GCD\n"
                 + "0 - Exit");
         Integer gameType = getGameNumber();
         System.out.println("Your choice: " + gameType);
@@ -21,6 +22,9 @@ public class App {
                 break;
             case 3:
                 Calc.calcGame();
+                break;
+            case 4:
+                GCD.gsdGame();
                 break;
             default:
                 break;
