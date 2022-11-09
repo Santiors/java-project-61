@@ -21,5 +21,4 @@ public class Engine {
         return random.nextInt(1, RANDOM_UPPER_LIMIT);
     }
 
-
 }

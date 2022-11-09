@@ -4,7 +4,6 @@ package hexlet.code;
 import java.util.Random;
 
 import static hexlet.code.Engine.NUMBER_OF_CORRECT_ANSWERS;
-import static hexlet.code.Engine.RANDOM_UPPER_LIMIT;
 
 public class Calc {
 

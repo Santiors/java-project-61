@@ -9,6 +9,7 @@ public class App {
                 + "3 - Calc\n"
                 + "4 - GCD\n"
                 + "5 - Progression\n"
+                + "6 - Prime\n"
                 + "0 - Exit");
         String gameType = Engine.getAnswer();
         System.out.println("Your choice: " + gameType);
@@ -27,6 +28,9 @@ public class App {
                 break;
             case "5":
                 Progression.progressionGame();
+                break;
+            case "6":
+                Prime.primeGame();
                 break;
             default:
                 break;
