@@ -42,10 +42,10 @@ public class Calc {
             }
             System.out.println("Question: " + firstNumber + operation + secondNumber);
             answer = Engine.getAnswer();
-            if (answer.equals(result)) {
+            if (answer.equals(String.valueOf(result))) {
                 System.out.println("Correct!");
                 counter++;
-            } else if (!answer.equals(result)) {
+            } else if (!answer.equals(String.valueOf(result))) {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was "
                         + "'" + result + "'.\n"
                         + "Let's try again, " + name + "!");
