@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
-import static hexlet.code.Engine.NUMBER_OF_CORRECT_ANSWERS;
+import static hexlet.code.Engine.checkCorrection;
 
 public class Calc {
 
@@ -14,16 +14,18 @@ public class Calc {
     private static Integer firstNumber;
     private static Integer secondNumber;
     private static Integer result = 0;
-    private static String answer;
     private static String operation;
     private static Random random = new Random();
-    private static boolean exit = true;
-    private static Integer counter = 0;
+    private static boolean check = true;
+
+    public static void main(String[] args) {
+        calcGame();
+    }
 
     public static void calcGame() {
         String name = Greet.greetGame();
         System.out.println("What is the result of the expression?");
-        while (exit && counter < NUMBER_OF_CORRECT_ANSWERS) {
+        while (check) {
             firstNumber = Engine.getRandomNumber();
             secondNumber = Engine.getRandomNumber();
             operation = getRandomOperation();
@@ -41,19 +43,7 @@ public class Calc {
                     break;
             }
             System.out.println("Question: " + firstNumber + operation + secondNumber);
-            answer = Engine.getAnswer();
-            if (answer.equals(String.valueOf(result))) {
-                System.out.println("Correct!");
-                counter++;
-            } else if (!answer.equals(String.valueOf(result))) {
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was "
-                        + "'" + result + "'.\n"
-                        + "Let's try again, " + name + "!");
-                exit = false;
-            }
-        }
-        if (counter == NUMBER_OF_CORRECT_ANSWERS) {
-            System.out.println("Congratulations, " + name + "!");
+            check = checkCorrection(String.valueOf(result), name);
         }
     }
 

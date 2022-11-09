@@ -1,42 +1,26 @@
 package hexlet.code.games;
 
-
-import hexlet.code.Engine;
-
 import java.util.Random;
 
-import static hexlet.code.Engine.NUMBER_OF_CORRECT_ANSWERS;
 import static hexlet.code.Engine.RANDOM_END;
 import static hexlet.code.Engine.RANDOM_START;
+import static hexlet.code.Engine.checkCorrection;
 
 public class Progression {
 
     private static Random random = new Random();
-    private static boolean exit = true;
-    private static Integer counter = 0;
+    private static boolean check = true;
 
     public static void progressionGame() {
         String name = Greet.greetGame();
-        while (exit && counter < NUMBER_OF_CORRECT_ANSWERS) {
+        while (check) {
             int size = random.nextInt(RANDOM_START, RANDOM_END);
             String[] array = getProgression(size);
             int position = random.nextInt(size);
             String[] arrayWithMissing = getProgressionWithMissingElement(array, position);
             System.out.println("What number is missing in the progression?");
             printQuestionWithStringArray(arrayWithMissing);
-            String answer = Engine.getAnswer();
-            if (answer.equals(array[position])) {
-                System.out.println("Correct!");
-                counter++;
-            } else if (!answer.equals(array[position])) {
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was "
-                        + "'" + array[position] + "'.\n"
-                        + "Let's try again, " + name + "!");
-                exit = false;
-            }
-        }
-        if (counter == NUMBER_OF_CORRECT_ANSWERS) {
-            System.out.println("Congratulations, " + name + "!");
+            check = checkCorrection(array[position], name);
         }
     }
 
