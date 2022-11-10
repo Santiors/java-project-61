@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-
 import java.util.Random;
 
 import static hexlet.code.Engine.NUMBER_OF_COLUMNS;

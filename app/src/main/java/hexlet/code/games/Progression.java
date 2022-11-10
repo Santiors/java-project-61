@@ -44,16 +44,16 @@ public class Progression {
         return arr;
     }
 
-    public static String[] getProgressionWithMissingElement(String[] arr, int position) {
-        String[] array = arr.clone();
-        array[position] = "..";
-        return array;
+    public static String[] getProgressionWithMissingElement(String[] arr, int elementPosition) {
+        String[] arrayWithMissing = arr.clone();
+        arrayWithMissing[elementPosition] = "..";
+        return arrayWithMissing;
     }
 
     public static String getQuestionWithMissingElement(String[] arr) {
         String questionMessage = "Question: ";
-        for (int i = 0; i < arr.length; i++){
-            questionMessage+= arr[i] + " ";
+        for (int i = 0; i < arr.length; i++) {
+            questionMessage += arr[i] + " ";
         }
         return questionMessage;
     }
