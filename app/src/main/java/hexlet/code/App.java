@@ -40,7 +40,7 @@ public class App {
                 Prime.primeGame();
                 break;
             default:
-                break;
+                throw new RuntimeException("Unknown operator: " + gameType);
         }
     }
 
