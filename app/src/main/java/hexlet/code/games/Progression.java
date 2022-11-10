@@ -2,6 +2,8 @@ package hexlet.code.games;
 
 import java.util.Random;
 
+import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
+import static hexlet.code.Engine.NUMBER_OF_ROWS;
 import static hexlet.code.Engine.RANDOM_END;
 import static hexlet.code.Engine.RANDOM_START;
 import static hexlet.code.Engine.checkCorrection;
@@ -10,17 +12,25 @@ public class Progression {
 
     private static Random random = new Random();
     private static boolean check = true;
+    private static String[] array;
+    private static int position;
 
     public static void progressionGame() {
         String name = Greet.greetGame();
+        System.out.println("What number is missing in the progression?");
+        String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
+        for (int i = 0; i < arrayOfQuestions.length; i++) {
+            for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
+                int size = random.nextInt(RANDOM_START, RANDOM_END);
+                array = getProgression(size);
+                position = random.nextInt(size);
+                String[] arrayWithMissing = getProgressionWithMissingElement(array, position);
+                arrayOfQuestions[i][j] = getQuestionWithMissingElement(arrayWithMissing);
+                arrayOfQuestions[i][j + 1] = array[position];
+            }
+        }
         while (check) {
-            int size = random.nextInt(RANDOM_START, RANDOM_END);
-            String[] array = getProgression(size);
-            int position = random.nextInt(size);
-            String[] arrayWithMissing = getProgressionWithMissingElement(array, position);
-            System.out.println("What number is missing in the progression?");
-            printQuestionWithStringArray(arrayWithMissing);
-            check = checkCorrection(array[position], name);
+            check = checkCorrection(name, arrayOfQuestions);
         }
     }
 
@@ -40,12 +50,12 @@ public class Progression {
         return array;
     }
 
-    public static void printQuestionWithStringArray(String[] array) {
-        System.out.print("Question: ");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+    public static String getQuestionWithMissingElement(String[] arr) {
+        String questionMessage = "Question: ";
+        for (int i = 0; i < arr.length; i++){
+            questionMessage+= arr[i] + " ";
         }
-        System.out.println();
+        return questionMessage;
     }
 
 }

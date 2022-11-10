@@ -5,6 +5,8 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
+import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
+import static hexlet.code.Engine.NUMBER_OF_ROWS;
 import static hexlet.code.Engine.checkCorrection;
 
 public class Calc {
@@ -21,25 +23,31 @@ public class Calc {
     public static void calcGame() {
         String name = Greet.greetGame();
         System.out.println("What is the result of the expression?");
-        while (check) {
-            firstNumber = Engine.getRandomNumber();
-            secondNumber = Engine.getRandomNumber();
-            operation = getRandomOperation();
-            switch (operation) {
-                case " + ":
-                    result = firstNumber + secondNumber;
-                    break;
-                case " - ":
-                    result = firstNumber - secondNumber;
-                    break;
-                case " * ":
-                    result = firstNumber * secondNumber;
-                    break;
-                default:
-                    break;
+        String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
+        for (int i = 0; i < arrayOfQuestions.length; i++) {
+            for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
+                firstNumber = Engine.getRandomNumber();
+                secondNumber = Engine.getRandomNumber();
+                operation = getRandomOperation();
+                switch (operation) {
+                    case " + ":
+                        result = firstNumber + secondNumber;
+                        break;
+                    case " - ":
+                        result = firstNumber - secondNumber;
+                        break;
+                    case " * ":
+                        result = firstNumber * secondNumber;
+                        break;
+                    default:
+                        break;
+                }
+                arrayOfQuestions[i][j] = "Question: " + firstNumber + operation + secondNumber;
+                arrayOfQuestions[i][j + 1] = String.valueOf(result);
             }
-            System.out.println("Question: " + firstNumber + operation + secondNumber);
-            check = checkCorrection(String.valueOf(result), name);
+        }
+        while (check) {
+            check = checkCorrection(name, arrayOfQuestions);
         }
     }
 

@@ -9,6 +9,8 @@ public class Engine {
     public static final int NUMBER_OF_CORRECT_ANSWERS = 3;
     public static final int RANDOM_START = 5;
     public static final int RANDOM_END = 10;
+    public static final int NUMBER_OF_ROWS = 3;
+    public static final int NUMBER_OF_COLUMNS = 2;
 
     private static Random random = new Random();
     private static Integer counter = 0;
@@ -24,16 +26,19 @@ public class Engine {
         return random.nextInt(1, RANDOM_UPPER_LIMIT);
     }
 
-    public static boolean checkCorrection(String result, String name) {
-        answer = Engine.getAnswer();
-        if (!answer.equals(result)) {
-            check = false;
-            System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was "
-                    + "'" + result + "'.\n"
-                    + "Let's try again, " + name + "!");
-        } else {
-            System.out.println("Correct!");
-            counter++;
+    public static boolean checkCorrection(String name, String[][] arrayOfQuestions) {
+        while (counter < NUMBER_OF_CORRECT_ANSWERS && check) {
+            System.out.println(arrayOfQuestions[counter][0]);
+            answer = Engine.getAnswer();
+            if (!answer.equals(arrayOfQuestions[counter][1])) {
+                check = false;
+                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was "
+                        + "'" + arrayOfQuestions[counter][1] + "'.\n"
+                        + "Let's try again, " + name + "!");
+            } else {
+                System.out.println("Correct!");
+                counter++;
+            }
         }
         if (counter == NUMBER_OF_CORRECT_ANSWERS) {
             System.out.println("Congratulations, " + name + "!");
