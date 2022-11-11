@@ -20,18 +20,31 @@ public class Even {
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
-                Integer randomNumber = random.nextInt(RANDOM_UPPER_LIMIT);
-                if (randomNumber % 2 == 0) {
-                    result = "yes";
-                } else {
-                    result = "no";
-                }
+                int randomNumber = random.nextInt(RANDOM_UPPER_LIMIT);
+                result = getResult(randomNumber);
                 arrayOfQuestions[i][j] = "Question: " + randomNumber;
                 arrayOfQuestions[i][j + 1] = result;
             }
         }
         while (check) {
             check = checkCorrection(name, arrayOfQuestions);
+        }
+    }
+
+    private static String getResult(int number) {
+        boolean even = isEven(number);
+        if (even) {
+            return "yes";
+        } else {
+            return "no";
+        }
+    }
+
+    private static boolean isEven(int number) {
+        if (number % 2 ==0) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
