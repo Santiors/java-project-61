@@ -21,8 +21,8 @@ public class Calc {
     private static boolean check = true;
 
     public static void calcGame() {
-        String name = Greet.greetGame();
-        System.out.println("What is the result of the expression?");
+        String name = Engine.getGreetings();
+        Engine.getCalcGameQuestion();
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {

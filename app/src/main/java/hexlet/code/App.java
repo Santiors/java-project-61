@@ -3,7 +3,6 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
-import hexlet.code.games.Greet;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
@@ -17,7 +16,7 @@ public class App {
         System.out.println("Your choice: " + gameType);
         switch (gameType) {
             case "1":
-                Greet.greetGame();
+                Engine.getGreetings();
                 break;
             case "2":
                 Even.evenGame();

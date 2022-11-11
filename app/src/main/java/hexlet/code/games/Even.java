@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
 
 import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
@@ -15,8 +17,8 @@ public class Even {
 
 
     public static void evenGame() {
-        String name = Greet.greetGame();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        String name = Engine.getGreetings();
+        Engine.getEvenGameQuestion();
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {

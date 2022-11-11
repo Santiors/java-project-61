@@ -15,8 +15,8 @@ public class GCD {
     private static boolean check = true;
 
     public static void gsdGame() {
-        String name = Greet.greetGame();
-        System.out.println("Find the greatest common divisor of given numbers.");
+        String name = Engine.getGreetings();
+        Engine.getGCDGameQuestion();
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
