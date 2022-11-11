@@ -13,14 +13,14 @@ public class Calc {
 
     private static final int NUMBER_OF_OPERATIONS = 3;
 
-    private static Integer firstNumber;
-    private static Integer secondNumber;
     private static Integer result = 0;
-    private static String operation;
     private static Random random = new Random();
-    private static boolean check = true;
 
     public static void calcGame() {
+        boolean check = true;
+        String operation;
+        int firstNumber;
+        int secondNumber;
         String name = Engine.getGreetings();
         Engine.getCalcGameQuestion();
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];

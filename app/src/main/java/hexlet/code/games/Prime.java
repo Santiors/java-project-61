@@ -9,7 +9,6 @@ import static hexlet.code.Engine.getRandomNumber;
 
 public class Prime {
 
-    private static String result;
     private static boolean check = true;
     private static Integer randomNumber;
 
@@ -20,7 +19,7 @@ public class Prime {
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
                 randomNumber = getRandomNumber();
-                result = getAnswerResultOfIsPrime(randomNumber);
+                String result = getAnswerResultOfIsPrime(randomNumber);
                 arrayOfQuestions[i][j] = "Question: " + randomNumber;
                 arrayOfQuestions[i][j + 1] = result;
             }

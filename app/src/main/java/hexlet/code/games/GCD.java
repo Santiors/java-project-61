@@ -9,20 +9,16 @@ import static hexlet.code.Engine.checkCorrection;
 
 public class GCD {
 
-    private static int firstNumber;
-    private static int secondNumber;
-    private static String gcdResult;
-    private static boolean check = true;
-
     public static void gsdGame() {
+        boolean check = true;
         String name = Engine.getGreetings();
         Engine.getGCDGameQuestion();
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
-                firstNumber = Engine.getRandomNumber();
-                secondNumber = Engine.getRandomNumber();
-                gcdResult = String.valueOf(gcdByEuclid(firstNumber, secondNumber));
+                int firstNumber = Engine.getRandomNumber();
+                int secondNumber = Engine.getRandomNumber();
+                String gcdResult = String.valueOf(gcdByEuclid(firstNumber, secondNumber));
                 arrayOfQuestions[i][j] = "Question: " + firstNumber + " " + secondNumber;
                 arrayOfQuestions[i][j + 1] = gcdResult;
             }
@@ -32,7 +28,7 @@ public class GCD {
         }
     }
 
-    public static int gcdByEuclid(int first, int second) {
+    private static int gcdByEuclid(int first, int second) {
         if (second == 0) {
             return first;
         }
