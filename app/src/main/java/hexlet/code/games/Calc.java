@@ -29,19 +29,7 @@ public class Calc {
                 firstNumber = Engine.getRandomNumber();
                 secondNumber = Engine.getRandomNumber();
                 operation = getRandomOperation();
-                switch (operation) {
-                    case " + ":
-                        result = firstNumber + secondNumber;
-                        break;
-                    case " - ":
-                        result = firstNumber - secondNumber;
-                        break;
-                    case " * ":
-                        result = firstNumber * secondNumber;
-                        break;
-                    default:
-                        break;
-                }
+                result = getResultOfOperation(firstNumber, secondNumber, operation);
                 arrayOfQuestions[i][j] = "Question: " + firstNumber + operation + secondNumber;
                 arrayOfQuestions[i][j + 1] = String.valueOf(result);
             }
@@ -51,10 +39,27 @@ public class Calc {
         }
     }
 
-    public static String getRandomOperation() {
+    private static String getRandomOperation() {
         String[] operations = {" + ", " - ", " * "};
         int i = random.nextInt(NUMBER_OF_OPERATIONS);
         return operations[i];
+    }
+
+    private static int getResultOfOperation(int first, int second, String oper) {
+        switch (oper) {
+            case " + ":
+                result = first + second;
+                break;
+            case " - ":
+                result = first - second;
+                break;
+            case " * ":
+                result = first * second;
+                break;
+            default:
+                throw new RuntimeException("Unknown operation: " + oper);
+        }
+        return result;
     }
 
 }
