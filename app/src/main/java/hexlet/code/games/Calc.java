@@ -15,24 +15,30 @@ public class Calc {
     private static final String DESCRIPTION = "What is the result of the expression?";
 
     private static Integer result = 0;
+    private static char operation;
+    private static int firstNumber;
+    private static int secondNumber;
 
     public static void calcGame() {
-        char operation;
-        int firstNumber;
-        int secondNumber;
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
-        for (int i = 0; i < arrayOfQuestions.length; i++) {
-            for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
-                firstNumber = Utils.getRandomNumber();
-                secondNumber = Utils.getRandomNumber();
-                operation = getRandomOperation();
-                result = getResultOfOperation(firstNumber, secondNumber, operation);
-                arrayOfQuestions[i][j] = "Question: " + firstNumber + " " + operation + " " + secondNumber;
-                arrayOfQuestions[i][j + 1] = String.valueOf(result);
-            }
+        for (int i = 0; i < NUMBER_OF_OPERATIONS; i++) {
+            arrayOfQuestions[i] = generateData();
         }
         checkCorrection(name, arrayOfQuestions);
+    }
+
+    private static String[] generateData() {
+        firstNumber = Utils.getRandomNumber();
+        secondNumber = Utils.getRandomNumber();
+        operation = getRandomOperation();
+        result = getResultOfOperation(firstNumber, secondNumber, operation);
+        String[] questionArray = new String[2];
+        for (int i = 0; i < questionArray.length - 1; i++) {
+            questionArray[i] = "Question: " + firstNumber + " " + operation + " " + secondNumber;
+            questionArray[i + 1] = String.valueOf(result);
+        }
+        return questionArray;
     }
 
     private static char getRandomOperation() {
