@@ -17,27 +17,24 @@ public class Even {
 
 
     public static void evenGame() {
-        boolean check = true;
+        boolean even;
+        String result;
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
                 int randomNumber = random.nextInt(RANDOM_UPPER_LIMIT);
-                String result = getResult(randomNumber);
+                even = isEven(randomNumber);
+                if (even) {
+                    result = "yes";
+                } else {
+                    result = "no";
+                }
                 arrayOfQuestions[i][j] = "Question: " + randomNumber;
                 arrayOfQuestions[i][j + 1] = result;
             }
         }
         checkCorrection(name, arrayOfQuestions);
-    }
-
-    private static String getResult(int number) {
-        boolean even = isEven(number);
-        if (even) {
-            return "yes";
-        } else {
-            return "no";
-        }
     }
 
     private static boolean isEven(int number) {
