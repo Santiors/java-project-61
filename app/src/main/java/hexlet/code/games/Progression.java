@@ -1,8 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.Utils;
 
 import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
 import static hexlet.code.Engine.NUMBER_OF_ROWS;
@@ -14,17 +13,15 @@ public class Progression {
 
     private static final String DESCRIPTION = "What number is missing in the progression?";
 
-    private static Random random = new Random();
-
     public static void progressionGame() {
-        boolean check = true;
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
-                int size = random.nextInt(RANDOM_START, RANDOM_END);
-                String[] array = getProgression(random.nextInt(RANDOM_END), random.nextInt(1, RANDOM_END), size);
-                int position = random.nextInt(size);
+                int size = Utils.getRandomNumberInRange(RANDOM_START, RANDOM_END);
+                String[] array = getProgression(Utils.getRandomNumberInRangeWithoutStartPoint(RANDOM_END),
+                        Utils.getRandomNumberInRange(1, RANDOM_END), size);
+                int position = Utils.getRandomNumberInRangeWithoutStartPoint(size);
                 String[] arrayWithMissing = getProgressionWithMissingElement(array, position);
                 arrayOfQuestions[i][j] = getQuestionWithMissingElement(arrayWithMissing);
                 arrayOfQuestions[i][j + 1] = array[position];

@@ -23,10 +23,6 @@ public class Engine {
         return userName;
     }
 
-    public static Integer getRandomNumber() {
-        return random.nextInt(1, RANDOM_UPPER_LIMIT);
-    }
-
     public static void checkCorrection(String name, String[][] arrayOfQuestions) {
         Scanner sc = new Scanner(System.in);
         while (counter < NUMBER_OF_CORRECT_ANSWERS && check) {

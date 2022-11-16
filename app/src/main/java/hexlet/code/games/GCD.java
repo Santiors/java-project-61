@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
 import static hexlet.code.Engine.NUMBER_OF_ROWS;
@@ -12,13 +13,12 @@ public class GCD {
     private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
     public static void gsdGame() {
-        boolean check = true;
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
-                int firstNumber = Engine.getRandomNumber();
-                int secondNumber = Engine.getRandomNumber();
+                int firstNumber = Utils.getRandomNumber();
+                int secondNumber = Utils.getRandomNumber();
                 String gcdResult = String.valueOf(gcdByEuclid(firstNumber, secondNumber));
                 arrayOfQuestions[i][j] = "Question: " + firstNumber + " " + secondNumber;
                 arrayOfQuestions[i][j + 1] = gcdResult;

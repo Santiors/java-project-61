@@ -1,20 +1,15 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.Utils;
 
 import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
 import static hexlet.code.Engine.NUMBER_OF_ROWS;
-import static hexlet.code.Engine.RANDOM_UPPER_LIMIT;
 import static hexlet.code.Engine.checkCorrection;
 
 public class Even {
 
     private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-
-    private static Random random = new Random();
-
 
     public static void evenGame() {
         boolean even;
@@ -23,7 +18,7 @@ public class Even {
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
-                int randomNumber = random.nextInt(RANDOM_UPPER_LIMIT);
+                int randomNumber = Utils.getRandomNumber();
                 even = isEven(randomNumber);
                 if (even) {
                     result = "yes";

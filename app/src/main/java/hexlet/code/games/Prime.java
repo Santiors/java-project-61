@@ -1,11 +1,11 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
 import static hexlet.code.Engine.NUMBER_OF_ROWS;
 import static hexlet.code.Engine.checkCorrection;
-import static hexlet.code.Engine.getRandomNumber;
 
 public class Prime {
 
@@ -19,7 +19,7 @@ public class Prime {
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
-                randomNumber = getRandomNumber();
+                randomNumber = Utils.getRandomNumber();
                 String result = getAnswerResultOfIsPrime(randomNumber);
                 arrayOfQuestions[i][j] = "Question: " + randomNumber;
                 arrayOfQuestions[i][j + 1] = result;
