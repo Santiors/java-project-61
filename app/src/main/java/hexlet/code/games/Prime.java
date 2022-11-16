@@ -11,31 +11,28 @@ public class Prime {
 
     private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    private static boolean check = true;
     private static Integer randomNumber;
 
     public static void primeGame() {
+        boolean prime;
+        String result;
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
                 randomNumber = Utils.getRandomNumber();
-                String result = getAnswerResultOfIsPrime(randomNumber);
+                prime = isPrime(randomNumber);
+                if (prime) {
+                    result = "yes";
+                } else {
+                    result = "no";
+                }
                 arrayOfQuestions[i][j] = "Question: " + randomNumber;
                 arrayOfQuestions[i][j + 1] = result;
             }
         }
         checkCorrection(name, arrayOfQuestions);
 
-    }
-
-    private static String getAnswerResultOfIsPrime(Integer number) {
-        boolean isPrime = isPrime(number);
-        if (isPrime) {
-            return "yes";
-        } else {
-            return "no";
-        }
     }
 
     private static boolean isPrime(Integer number) {
