@@ -24,7 +24,7 @@ public class Progression {
                 int position = Utils.getRandomNumberInRangeWithoutStartPoint(size);
                 String answer = array[position];
                 array[position] = "..";
-                String question = String.join(" ", array);
+                String question = "Question: " + String.join(" ", array);
                 arrayOfQuestions[i][j] = question;
                 arrayOfQuestions[i][j + 1] = answer;
             }
@@ -34,8 +34,7 @@ public class Progression {
 
     private static String[] getProgression(int first, int step, int length) {
         String[] progression = new String[length];
-
-        for (int i = 0; i < length; i += 1) {
+        for (int i = 0; i < length; i++) {
             progression[i] = Integer.toString(first + i * step);
         }
 
