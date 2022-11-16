@@ -6,8 +6,6 @@ import hexlet.code.Utils;
 import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
 import static hexlet.code.Engine.NUMBER_OF_ROUNDS;
 import static hexlet.code.Engine.NUMBER_OF_ROWS;
-import static hexlet.code.Engine.RANDOM_END;
-import static hexlet.code.Engine.RANDOM_START;
 import static hexlet.code.Engine.checkCorrection;
 
 public class Even {
