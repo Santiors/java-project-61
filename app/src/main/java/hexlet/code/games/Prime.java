@@ -20,29 +20,13 @@ public class Prime {
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            arrayOfQuestions[i] = generateData();
+            arrayOfQuestions[i] = Utils.generateData("Prime");
         }
         checkCorrection(name, arrayOfQuestions);
 
     }
 
-    private static String[] generateData() {
-        randomNumber = Utils.getRandomNumber();
-        prime = isPrime(randomNumber);
-        if (prime) {
-            result = "yes";
-        } else {
-            result = "no";
-        }
-        String[] questionArray = new String[2];
-        for (int i = 0; i < questionArray.length - 1; i++) {
-            questionArray[i] = "Question: " + randomNumber;
-            questionArray[i + 1] = result;
-        }
-        return questionArray;
-    }
-
-    private static boolean isPrime(Integer number) {
+    public static boolean isPrime(Integer number) {
         if (number <= 1) {
             return false;
         }

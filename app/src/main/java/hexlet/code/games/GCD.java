@@ -13,31 +13,16 @@ public class GCD {
 
     private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
-    private static int firstNumber;
-    private static int secondNumber;
-
     public static void gsdGame() {
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            arrayOfQuestions[i] = generateData();
+            arrayOfQuestions[i] = Utils.generateData("GCD");
         }
         checkCorrection(name, arrayOfQuestions);
     }
 
-    private static String[] generateData() {
-        firstNumber = Utils.getRandomNumber();
-        secondNumber = Utils.getRandomNumber();
-        String gcdResult = String.valueOf(gcdByEuclid(firstNumber, secondNumber));
-        String[] questionArray = new String[2];
-        for (int i = 0; i < questionArray.length - 1; i++) {
-            questionArray[i] = "Question: " + firstNumber + " " + secondNumber;
-            questionArray[i + 1] = gcdResult;
-        }
-        return questionArray;
-    }
-
-    private static int gcdByEuclid(int first, int second) {
+    public static int gcdByEuclid(int first, int second) {
         if (second == 0) {
             return first;
         }

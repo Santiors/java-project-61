@@ -24,30 +24,17 @@ public class Calc {
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            arrayOfQuestions[i] = generateData();
+            arrayOfQuestions[i] = Utils.generateData("Calc");
         }
         checkCorrection(name, arrayOfQuestions);
     }
 
-    private static String[] generateData() {
-        firstNumber = Utils.getRandomNumber();
-        secondNumber = Utils.getRandomNumber();
-        operation = getRandomOperation();
-        result = getResultOfOperation(firstNumber, secondNumber, operation);
-        String[] questionArray = new String[2];
-        for (int i = 0; i < questionArray.length - 1; i++) {
-            questionArray[i] = "Question: " + firstNumber + " " + operation + " " + secondNumber;
-            questionArray[i + 1] = String.valueOf(result);
-        }
-        return questionArray;
-    }
-
-    private static char getRandomOperation() {
+    public static char getRandomOperation() {
         int i = Utils.getRandomNumberInRangeWithoutStartPoint(NUMBER_OF_OPERATIONS);
         return OPERATORS[i];
     }
 
-    private static int getResultOfOperation(int first, int second, char oper) {
+    public static int getResultOfOperation(int first, int second, char oper) {
         switch (oper) {
             case '+':
                 result = first + second;
