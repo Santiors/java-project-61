@@ -25,9 +25,7 @@ public class Prime {
                 arrayOfQuestions[i][j + 1] = result;
             }
         }
-        while (check) {
-            check = checkCorrection(name, arrayOfQuestions);
-        }
+        checkCorrection(name, arrayOfQuestions);
 
     }
 

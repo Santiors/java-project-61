@@ -17,11 +17,6 @@ public class Engine {
     private static boolean check = true;
     private static String answer;
 
-    public static String getAnswer() {
-        Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
-    }
-
     public static String getGreetings(String description) {
         String userName = Cli.greet();
         System.out.println(description);
@@ -32,10 +27,11 @@ public class Engine {
         return random.nextInt(1, RANDOM_UPPER_LIMIT);
     }
 
-    public static boolean checkCorrection(String name, String[][] arrayOfQuestions) {
+    public static void checkCorrection(String name, String[][] arrayOfQuestions) {
+        Scanner sc = new Scanner(System.in);
         while (counter < NUMBER_OF_CORRECT_ANSWERS && check) {
             System.out.println(arrayOfQuestions[counter][0]);
-            answer = Engine.getAnswer();
+            answer = sc.nextLine();
             if (!answer.equals(arrayOfQuestions[counter][1])) {
                 check = false;
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was "
@@ -48,9 +44,7 @@ public class Engine {
         }
         if (counter == NUMBER_OF_CORRECT_ANSWERS) {
             System.out.println("Congratulations, " + name + "!");
-            return false;
         }
-        return check;
     }
 
 }

@@ -30,9 +30,7 @@ public class Progression {
                 arrayOfQuestions[i][j + 1] = array[position];
             }
         }
-        while (check) {
-            check = checkCorrection(name, arrayOfQuestions);
-        }
+        checkCorrection(name, arrayOfQuestions);
     }
 
     private static String[] getProgression(int first, int step, int length) {

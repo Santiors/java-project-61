@@ -20,7 +20,7 @@ public class Calc {
 
     public static void calcGame() {
         boolean check = true;
-        String operation;
+        char operation;
         int firstNumber;
         int secondNumber;
         String name = Engine.getGreetings(DESCRIPTION);
@@ -31,30 +31,27 @@ public class Calc {
                 secondNumber = Engine.getRandomNumber();
                 operation = getRandomOperation();
                 result = getResultOfOperation(firstNumber, secondNumber, operation);
-                arrayOfQuestions[i][j] = "Question: " + firstNumber + operation + secondNumber;
+                arrayOfQuestions[i][j] = "Question: " + firstNumber + " " + operation + " " + secondNumber;
                 arrayOfQuestions[i][j + 1] = String.valueOf(result);
             }
         }
-        while (check) {
-            check = checkCorrection(name, arrayOfQuestions);
-        }
+        checkCorrection(name, arrayOfQuestions);
     }
 
-    private static String getRandomOperation() {
-        String[] operations = {" + ", " - ", " * "};
+    private static char getRandomOperation() {
         int i = random.nextInt(NUMBER_OF_OPERATIONS);
-        return operations[i];
+        return OPERATORS[i];
     }
 
-    private static int getResultOfOperation(int first, int second, String oper) {
+    private static int getResultOfOperation(int first, int second, char oper) {
         switch (oper) {
-            case " + ":
+            case '+':
                 result = first + second;
                 break;
-            case " - ":
+            case '-':
                 result = first - second;
                 break;
-            case " * ":
+            case '*':
                 result = first * second;
                 break;
             default:

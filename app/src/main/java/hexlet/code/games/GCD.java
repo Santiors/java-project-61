@@ -24,9 +24,7 @@ public class GCD {
                 arrayOfQuestions[i][j + 1] = gcdResult;
             }
         }
-        while (check) {
-            check = checkCorrection(name, arrayOfQuestions);
-        }
+        checkCorrection(name, arrayOfQuestions);
     }
 
     private static int gcdByEuclid(int first, int second) {

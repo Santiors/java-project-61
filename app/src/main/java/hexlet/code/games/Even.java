@@ -28,9 +28,7 @@ public class Even {
                 arrayOfQuestions[i][j + 1] = result;
             }
         }
-        while (check) {
-            check = checkCorrection(name, arrayOfQuestions);
-        }
+        checkCorrection(name, arrayOfQuestions);
     }
 
     private static String getResult(int number) {
