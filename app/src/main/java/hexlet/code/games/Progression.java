@@ -22,9 +22,11 @@ public class Progression {
                 String[] array = getProgression(Utils.getRandomNumberInRangeWithoutStartPoint(RANDOM_END),
                         Utils.getRandomNumberInRange(1, RANDOM_END), size);
                 int position = Utils.getRandomNumberInRangeWithoutStartPoint(size);
-                String[] arrayWithMissing = getProgressionWithMissingElement(array, position);
-                arrayOfQuestions[i][j] = getQuestionWithMissingElement(arrayWithMissing);
-                arrayOfQuestions[i][j + 1] = array[position];
+                String answer = array[position];
+                array[position] = "..";
+                String question = String.join(" ", array);
+                arrayOfQuestions[i][j] = question;
+                arrayOfQuestions[i][j + 1] = answer;
             }
         }
         checkCorrection(name, arrayOfQuestions);
@@ -38,20 +40,6 @@ public class Progression {
         }
 
         return progression;
-    }
-
-    private static String[] getProgressionWithMissingElement(String[] arr, int elementPosition) {
-        String[] arrayWithMissing = arr.clone();
-        arrayWithMissing[elementPosition] = "..";
-        return arrayWithMissing;
-    }
-
-    private static String getQuestionWithMissingElement(String[] arr) {
-        String questionMessage = "Question: ";
-        for (int i = 0; i < arr.length; i++) {
-            questionMessage += arr[i] + " ";
-        }
-        return questionMessage;
     }
 
 }
