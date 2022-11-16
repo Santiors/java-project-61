@@ -9,10 +9,11 @@ import static hexlet.code.Engine.checkCorrection;
 
 public class GCD {
 
+    private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
+
     public static void gsdGame() {
         boolean check = true;
-        String name = Engine.getGreetings();
-        Engine.getGCDGameQuestion();
+        String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {

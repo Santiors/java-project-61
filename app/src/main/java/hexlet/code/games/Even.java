@@ -11,13 +11,14 @@ import static hexlet.code.Engine.checkCorrection;
 
 public class Even {
 
+    private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
     private static Random random = new Random();
 
 
     public static void evenGame() {
         boolean check = true;
-        String name = Engine.getGreetings();
-        Engine.getEvenGameQuestion();
+        String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {

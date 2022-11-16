@@ -12,6 +12,8 @@ import static hexlet.code.Engine.checkCorrection;
 public class Calc {
 
     private static final int NUMBER_OF_OPERATIONS = 3;
+    private static final char[] OPERATORS = {'+', '-', '*'};
+    private static final String DESCRIPTION = "What is the result of the expression?";
 
     private static Integer result = 0;
     private static Random random = new Random();
@@ -21,8 +23,7 @@ public class Calc {
         String operation;
         int firstNumber;
         int secondNumber;
-        String name = Engine.getGreetings();
-        Engine.getCalcGameQuestion();
+        String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {

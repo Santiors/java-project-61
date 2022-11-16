@@ -9,12 +9,13 @@ import static hexlet.code.Engine.getRandomNumber;
 
 public class Prime {
 
+    private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
     private static boolean check = true;
     private static Integer randomNumber;
 
     public static void primeGame() {
-        String name = Engine.getGreetings();
-        Engine.getPrimeGameQuestion();
+        String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {

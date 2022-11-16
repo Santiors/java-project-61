@@ -22,36 +22,14 @@ public class Engine {
         return sc.nextLine();
     }
 
-    public static String getGreetings() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name?");
-        String name = Engine.getAnswer();
-        System.out.println("Hello, " + name + "!");
-        return name;
+    public static String getGreetings(String description) {
+        String userName = Cli.greet();
+        System.out.println(description);
+        return userName;
     }
 
     public static Integer getRandomNumber() {
         return random.nextInt(1, RANDOM_UPPER_LIMIT);
-    }
-
-    public static void getEvenGameQuestion() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-    }
-
-    public static void getCalcGameQuestion() {
-        System.out.println("What is the result of the expression?");
-    }
-
-    public static void getGCDGameQuestion() {
-        System.out.println("Find the greatest common divisor of given numbers.");
-    }
-
-    public static void getProgressionGameQuestion() {
-        System.out.println("What number is missing in the progression?");
-    }
-
-    public static void getPrimeGameQuestion() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
     public static boolean checkCorrection(String name, String[][] arrayOfQuestions) {

@@ -12,11 +12,12 @@ public class App {
 
     public static void main(String[] args) {
         printHelloWindow();
-        String gameType = getGameType();
+        Scanner scanner = new Scanner(System.in);
+        String gameType = scanner.nextLine();
         System.out.println("Your choice: " + gameType);
         switch (gameType) {
             case "1":
-                Engine.getGreetings();
+                Cli.greet();
                 break;
             case "2":
                 Even.evenGame();
@@ -36,6 +37,7 @@ public class App {
             default:
                 throw new RuntimeException("Unknown operator: " + gameType);
         }
+        scanner.close();
     }
 
     private static void printHelloWindow() {
@@ -47,11 +49,6 @@ public class App {
                 + "5 - Progression\n"
                 + "6 - Prime\n"
                 + "0 - Exit");
-    }
-
-    private static String getGameType() {
-        Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
     }
 
 }

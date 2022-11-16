@@ -12,12 +12,13 @@ import static hexlet.code.Engine.checkCorrection;
 
 public class Progression {
 
+    private static final String DESCRIPTION = "What number is missing in the progression?";
+
     private static Random random = new Random();
 
     public static void progressionGame() {
         boolean check = true;
-        String name = Engine.getGreetings();
-        Engine.getProgressionGameQuestion();
+        String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < arrayOfQuestions.length; i++) {
             for (int j = 0; j < arrayOfQuestions[i].length - 1; j++) {
