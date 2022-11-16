@@ -5,6 +5,7 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
+import static hexlet.code.Engine.NUMBER_OF_ROUNDS;
 import static hexlet.code.Engine.NUMBER_OF_ROWS;
 import static hexlet.code.Engine.checkCorrection;
 
@@ -22,7 +23,7 @@ public class Calc {
     public static void calcGame() {
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
-        for (int i = 0; i < NUMBER_OF_OPERATIONS; i++) {
+        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             arrayOfQuestions[i] = generateData();
         }
         checkCorrection(name, arrayOfQuestions);

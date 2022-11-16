@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static final int RANDOM_UPPER_LIMIT = 100;
-    public static final int NUMBER_OF_CORRECT_ANSWERS = 3;
+    public static final int NUMBER_OF_ROUNDS = 3;
     public static final int RANDOM_START = 5;
     public static final int RANDOM_END = 10;
     public static final int NUMBER_OF_ROWS = 3;
@@ -25,7 +24,7 @@ public class Engine {
 
     public static void checkCorrection(String name, String[][] arrayOfQuestions) {
         Scanner sc = new Scanner(System.in);
-        while (counter < NUMBER_OF_CORRECT_ANSWERS && check) {
+        while (counter < NUMBER_OF_ROUNDS && check) {
             System.out.println(arrayOfQuestions[counter][0]);
             answer = sc.nextLine();
             if (!answer.equals(arrayOfQuestions[counter][1])) {
@@ -38,7 +37,7 @@ public class Engine {
                 counter++;
             }
         }
-        if (counter == NUMBER_OF_CORRECT_ANSWERS) {
+        if (counter == NUMBER_OF_ROUNDS) {
             System.out.println("Congratulations, " + name + "!");
         }
     }
