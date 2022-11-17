@@ -30,7 +30,7 @@ public class Calc {
         var secondNumber = Utils.generateRandomNumber(0, MAX_VALUE_FOR_RANDOM_DATA);
         var operation = getRandomOperation();
         var answer = String.valueOf(getResultOfOperation(firstNumber, secondNumber, operation));
-        String question = String.valueOf(firstNumber) + operation + secondNumber;
+        String question = firstNumber + " " + operation + " " + secondNumber;
         return new String[] {question, answer};
     }
 
