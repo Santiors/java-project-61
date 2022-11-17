@@ -2,9 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.RoundDataUtils;
-import hexlet.code.Utils;
 
-import static hexlet.code.Engine.MAX_VALUE_FOR_RANDOM_DATA;
 import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
 import static hexlet.code.Engine.NUMBER_OF_ROUNDS;
 import static hexlet.code.Engine.NUMBER_OF_ROWS;
