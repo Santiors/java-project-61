@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Engine {
 
+    public static final int MAX_VALUE_FOR_RANDOM_DATA = 100;
     public static final int NUMBER_OF_ROUNDS = 3;
     public static final int RANDOM_START = 5;
     public static final int RANDOM_END = 10;
@@ -24,8 +25,9 @@ public class Engine {
 
     public static void checkCorrection(String name, String[][] arrayOfQuestions) {
         Scanner sc = new Scanner(System.in);
+
         while (counter < NUMBER_OF_ROUNDS && check) {
-            System.out.println(arrayOfQuestions[counter][0]);
+            System.out.println("Question: " + arrayOfQuestions[counter][0]);
             answer = sc.nextLine();
             if (!answer.equals(arrayOfQuestions[counter][1])) {
                 check = false;

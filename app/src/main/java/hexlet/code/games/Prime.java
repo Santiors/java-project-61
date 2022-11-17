@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import static hexlet.code.Engine.MAX_VALUE_FOR_RANDOM_DATA;
 import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
 import static hexlet.code.Engine.NUMBER_OF_ROUNDS;
 import static hexlet.code.Engine.NUMBER_OF_ROWS;
@@ -12,18 +13,20 @@ public class Prime {
 
     private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    private static Integer randomNumber;
-    private static boolean prime;
-    private static String result;
-
     public static void primeGame() {
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            arrayOfQuestions[i] = Utils.generateData("Prime");
+            arrayOfQuestions[i] = generateRoundDataForPrime();
         }
         checkCorrection(name, arrayOfQuestions);
 
+    }
+
+    private static String[] generateRoundDataForPrime() {
+        var question = Utils.generateRandomNumber(0, MAX_VALUE_FOR_RANDOM_DATA);
+        String answer = isPrime(question) ? "yes" : "no";
+        return new String[] {String.valueOf(question), answer};
     }
 
     public static boolean isPrime(Integer number) {
