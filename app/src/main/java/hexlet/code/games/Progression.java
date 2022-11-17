@@ -25,9 +25,9 @@ public class Progression {
 
     private static String[] generateRoundDataForProgression() {
         var size = Utils.generateRandomNumber(RANDOM_START, RANDOM_END);
-        String[] array = getProgression(Utils.generateRandomNumber(1, RANDOM_END),
+        String[] array = getProgression(Utils.generateRandomNumber(0, RANDOM_END),
                 Utils.generateRandomNumber(1, RANDOM_END), size);
-        var position = Utils.generateRandomNumber(0, size);
+        var position = Utils.generateRandomNumber(0, size - 1);
         String answer = array[position];
         array[position] = "..";
         String question = String.join(" ", array);
