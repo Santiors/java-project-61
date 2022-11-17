@@ -52,4 +52,5 @@ public class RoundDataUtils {
             default -> throw new RuntimeException("Unknown type: " + gameType);
         }
     }
+
 }
