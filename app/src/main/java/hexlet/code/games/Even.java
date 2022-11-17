@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.RoundDataUtils;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_VALUE_FOR_RANDOM_DATA;
@@ -17,15 +18,9 @@ public class Even {
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            arrayOfQuestions[i] = generateRoundDataForEven();
+            arrayOfQuestions[i] = RoundDataUtils.generateData("Even");
         }
         checkCorrection(name, arrayOfQuestions);
-    }
-
-    private static String[] generateRoundDataForEven() {
-        var question = Utils.generateRandomNumber(0, MAX_VALUE_FOR_RANDOM_DATA);
-        String answer = isEven(question) ? "yes" : "no";
-        return new String[] {String.valueOf(question), answer};
     }
 
     public static boolean isEven(int number) {

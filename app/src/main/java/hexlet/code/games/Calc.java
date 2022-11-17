@@ -2,9 +2,9 @@ package hexlet.code.games;
 
 
 import hexlet.code.Engine;
+import hexlet.code.RoundDataUtils;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.MAX_VALUE_FOR_RANDOM_DATA;
 import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
 import static hexlet.code.Engine.NUMBER_OF_ROUNDS;
 import static hexlet.code.Engine.NUMBER_OF_ROWS;
@@ -20,18 +20,9 @@ public class Calc {
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            arrayOfQuestions[i] = generateRoundDataForCalc();
+            arrayOfQuestions[i] = RoundDataUtils.generateData("Calc");
         }
         checkCorrection(name, arrayOfQuestions);
-    }
-
-    private static String[] generateRoundDataForCalc() {
-        var firstNumber = Utils.generateRandomNumber(0, MAX_VALUE_FOR_RANDOM_DATA);
-        var secondNumber = Utils.generateRandomNumber(0, MAX_VALUE_FOR_RANDOM_DATA);
-        var operation = getRandomOperation();
-        var answer = String.valueOf(getResultOfOperation(firstNumber, secondNumber, operation));
-        String question = firstNumber + " " + operation + " " + secondNumber;
-        return new String[] {question, answer};
     }
 
     public static char getRandomOperation() {

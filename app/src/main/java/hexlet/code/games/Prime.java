@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.RoundDataUtils;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_VALUE_FOR_RANDOM_DATA;
@@ -17,16 +18,10 @@ public class Prime {
         String name = Engine.getGreetings(DESCRIPTION);
         String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            arrayOfQuestions[i] = generateRoundDataForPrime();
+            arrayOfQuestions[i] = RoundDataUtils.generateData("Prime");
         }
         checkCorrection(name, arrayOfQuestions);
 
-    }
-
-    private static String[] generateRoundDataForPrime() {
-        var question = Utils.generateRandomNumber(0, MAX_VALUE_FOR_RANDOM_DATA);
-        String answer = isPrime(question) ? "yes" : "no";
-        return new String[] {String.valueOf(question), answer};
     }
 
     public static boolean isPrime(Integer number) {
