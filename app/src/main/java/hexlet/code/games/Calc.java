@@ -35,7 +35,7 @@ public class Calc {
     }
 
     public static char getRandomOperation() {
-        int i = Utils.generateRandomNumber(0, NUMBER_OF_OPERATIONS);
+        int i = Utils.generateRandomNumber(0, NUMBER_OF_OPERATIONS - 1);
         return OPERATORS[i];
     }
 
