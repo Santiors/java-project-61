@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
@@ -12,36 +11,30 @@ public class Engine {
     public static final int NUMBER_OF_ROWS = 3;
     public static final int NUMBER_OF_COLUMNS = 2;
 
-    private static Random random = new Random();
-    private static Integer counter = 0;
-    private static boolean check = true;
-    private static String answer;
+    public static void checkCorrection(String description, String[][] arrayOfQuestions) {
+        String answer;
+        Scanner scanner = new Scanner(System.in);
 
-    public static String getGreetings(String description) {
-        String userName = Cli.greet();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name? ");
+        String userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
         System.out.println(description);
-        return userName;
-    }
 
-    public static void checkCorrection(String name, String[][] arrayOfQuestions) {
-        Scanner sc = new Scanner(System.in);
-
-        while (counter < NUMBER_OF_ROUNDS && check) {
-            System.out.println("Question: " + arrayOfQuestions[counter][0]);
-            answer = sc.nextLine();
-            if (!answer.equals(arrayOfQuestions[counter][1])) {
-                check = false;
+        for (String[] roundData: arrayOfQuestions) {
+            System.out.println("Question: " + roundData[0]);
+            answer = scanner.nextLine();
+            if (!answer.equals(roundData[1])) {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was "
-                        + "'" + arrayOfQuestions[counter][1] + "'.\n"
-                        + "Let's try again, " + name + "!");
+                        + "'" + roundData[1] + "'.\n"
+                        + "Let's try again, " + userName + "!");
+                return;
             } else {
                 System.out.println("Correct!");
-                counter++;
             }
         }
-        if (counter == NUMBER_OF_ROUNDS) {
-            System.out.println("Congratulations, " + name + "!");
-        }
+
+        System.out.println("Congratulations, " + userName + "!");
     }
 
 }
