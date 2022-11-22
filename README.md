@@ -1,5 +1,5 @@
 ### Hexlet tests and linter status:
-[![hexlet-check](https://github.com/Santiors/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Santiors/java-project-61/actions/workflows/hexlet-check.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/44f465ae1c0c00aa704f/maintainability)](https://codeclimate.com/github/Santiors/java-project-61/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/44f465ae1c0c00aa704f/test_coverage)](https://codeclimate.com/github/Santiors/java-project-61/test_coverage)
+[![hexlet-check](https://github.com/Santiors/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Santiors/java-project-61/actions/workflows/hexlet-check.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/af86717a132a3f212dd0/maintainability)](https://codeclimate.com/github/Santiors/java-project-61/maintainability)
 # **Game preview**
 ### 0. Exit
 [![asciicast](https://asciinema.org/a/xFOmKlE5cC3bldGdrKzC138gX.svg)](https://asciinema.org/a/xFOmKlE5cC3bldGdrKzC138gX)
