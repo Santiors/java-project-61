@@ -2,19 +2,17 @@ package hexlet.code.games;
 
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
 import static hexlet.code.Engine.NUMBER_OF_ROUNDS;
-import static hexlet.code.Engine.NUMBER_OF_ROWS;
-import static hexlet.code.Engine.RANDOM_END;
-import static hexlet.code.Engine.RANDOM_START;
 import static hexlet.code.Engine.checkCorrection;
 
 public class Progression {
 
     private static final String DESCRIPTION = "What number is missing in the progression?";
+    private static final int RANDOM_START = 5;
+    private static final int RANDOM_END = 10;
 
     public static void progressionGame() {
-        String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
+        String[][] arrayOfQuestions = new String[NUMBER_OF_ROUNDS][2];
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             arrayOfQuestions[i] = generateData();
         }

@@ -3,20 +3,17 @@ package hexlet.code.games;
 
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.MAX_VALUE_FOR_RANDOM_DATA;
-import static hexlet.code.Engine.NUMBER_OF_COLUMNS;
 import static hexlet.code.Engine.NUMBER_OF_ROUNDS;
-import static hexlet.code.Engine.NUMBER_OF_ROWS;
 import static hexlet.code.Engine.checkCorrection;
 
 public class Calc {
 
-    private static final int NUMBER_OF_OPERATIONS = 3;
     private static final char[] OPERATORS = {'+', '-', '*'};
     private static final String DESCRIPTION = "What is the result of the expression?";
+    private static final int MAX_VALUE_FOR_RANDOM_DATA = 100;
 
     public static void calcGame() {
-        String[][] arrayOfQuestions = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
+        String[][] arrayOfQuestions = new String[NUMBER_OF_ROUNDS][2];
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             arrayOfQuestions[i] = generateData();
         }
@@ -26,7 +23,7 @@ public class Calc {
     private static String[] generateData() {
         var firstNumber = Utils.generateRandomNumber(0, MAX_VALUE_FOR_RANDOM_DATA);
         var secondNumber = Utils.generateRandomNumber(0, MAX_VALUE_FOR_RANDOM_DATA);
-        int i = Utils.generateRandomNumber(0, NUMBER_OF_OPERATIONS - 1);
+        int i = Utils.generateRandomNumber(0, OPERATORS.length - 1);
         var operation = OPERATORS[i];
         var answer = String.valueOf(getResultOfOperation(firstNumber, secondNumber, operation));
         String question = firstNumber + " " + operation + " " + secondNumber;

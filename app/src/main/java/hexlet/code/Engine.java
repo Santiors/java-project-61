@@ -4,12 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static final int MAX_VALUE_FOR_RANDOM_DATA = 100;
     public static final int NUMBER_OF_ROUNDS = 3;
-    public static final int RANDOM_START = 5;
-    public static final int RANDOM_END = 10;
-    public static final int NUMBER_OF_ROWS = 3;
-    public static final int NUMBER_OF_COLUMNS = 2;
 
     public static void checkCorrection(String description, String[][] arrayOfQuestions) {
         String answer;
